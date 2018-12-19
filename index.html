@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+
+	<link rel="stylesheet" href="css/bootstrap/easyui.css">
+	<link rel="stylesheet" href="css/icon.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+
+	<style type="text/css">
+        #tabs .tabs-panels>.panel>.panel-body {  
+    		overflow: hidden;  
+    	} 
+    </style>
+</head>
+<body class="easyui-layout">   
+
+    <div data-options="region:'north'" style="height:100px;">
+    	<h1 style="position:absolute; left:73px; font-size:3em;">药店信息检索<h1>
+    </div>   
+    <div data-options="region:'south'" style="height:44px;">
+    	<p align="center">代码如诗</p>
+    </div>   
+    <div data-options="region:'west'" title="导航菜单" style="width:233px">
+    	
+		<a onclick="tabAdd('测试', 'http://www.runoob.com')">药</a>
+		<a href="url">链接文本</a>
+    </div> 
+
+    <div data-options="region:'center'" style="padding:5px; background:#eee; overflow:hidden">
+    	
+		<div id="tabs" class="easyui-tabs" data-options="fit:true, plain:true, border:false">
+
+			<div title="首页">
+            	<div align="center" style="position:relative; top:150px">
+            		<p style="font-size:3em">欢迎使用</p>
+            	</div>
+        	</div>    		
+    	</div>
+
+    <script>
+    	// $('#nav').tree({
+    	// 	data:[
+    	// 		{text: "药品信息", "iconCls":"icon-blank"},
+    	// 		{text: "顾客信息", "iconCls":"icon-blank"},
+    	// 		{text: "经办人信息", "iconCls":"icon-blank"}
+    	// 	],
+    	// 	onClick: function(node){
+    	// 		if(node.attributes){
+    	// 			Open(node.text, node.attributes.url, node.iconCls);
+    	// 		}
+    	// 	}
+    	// });
+
+		function tabAdd(text,url) {
+			if ($("#tabs").tabs('exists', text)) {
+				$("#tabs").tabs('select', text);
+			} else {
+				var content = "<iframe style='width:100%;height:100%' src="+ url+ "></iframe>";   
+				
+				$("#tabs").tabs('add', {   //生成新的选项卡，
+					title : text,
+					closable : true,
+					content :content
+				});
+			}
+		}
+
+    </script> 
+</body>
+</html>
